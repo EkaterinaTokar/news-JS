@@ -1,4 +1,4 @@
-import { load, sourceObj } from '../../types/types';
+import { load, SourceObj } from '../../types/types';
 type CallBack<T> = (data: T) => void;
 class Loader {
     baseLink: string;
@@ -27,7 +27,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: load, endpoint: string) {
+    makeUrl(options: load, endpoint?: string): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -38,12 +38,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: CallBack<sourceObj>, options: load = {}): void {
+    load(method: string, endpoint: string, callback: CallBack<SourceObj>, options: load = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((res: Response) => res.json())
+            .then((data: SourceObj) => callback(data))
+            .catch((err: Error) => console.error(err));
     }
 }
 
