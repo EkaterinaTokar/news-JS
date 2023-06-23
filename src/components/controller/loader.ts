@@ -1,15 +1,21 @@
 import { load, SourceObj } from '../../types/types';
 type CallBack<T> = (data: T) => void;
+enum Endpoint {
+    'sources',
+    'everything',
+    'top-headlines',
+}
+type EndpointStrings = keyof typeof Endpoint;
 class Loader {
-    baseLink: string;
-    options: load;
+    public baseLink: string;
+    public options: load;
     constructor(baseLink: string, options: load) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: string; options?: load },
+        { endpoint, options = {} }: { endpoint: EndpointStrings; options?: load },
         callback = (): void => {
             console.error('No callback for GET response');
         }
