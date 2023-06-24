@@ -28,3 +28,7 @@ export interface SourceItems {
     sources?: string[];
     articles?: string[];
 }
+export enum Endpoint {
+    'sources',
+    'everything',
+}

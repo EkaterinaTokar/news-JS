@@ -1,10 +1,5 @@
-import { load, SourceObj } from '../../types/types';
+import { load, SourceObj, Endpoint } from '../../types/types';
 type CallBack<T> = (data: T) => void;
-enum Endpoint {
-    'sources',
-    'everything',
-    'top-headlines',
-}
 type EndpointStrings = keyof typeof Endpoint;
 class Loader {
     public baseLink: string;
