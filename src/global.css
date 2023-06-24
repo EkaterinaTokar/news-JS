@@ -1,23 +1,30 @@
 body {
-    color: #fff;
-    background: #17181c;
+    color: #17181c;
+    background: #ffffff;
     font-family: sans-serif;
 }
 
 header {
     padding: 10px 30px;
+    background:  royalblue;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.3), -5px -10px 20px rgba(255,255,255,0.5);
 }
 
 header h1 {
     font-size: 40px;
     font-weight: 800;
 }
-
+.main{
+    display: flex;
+    gap: 10px;
+}
 footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    background: royalblue;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.3), -5px -10px 20px rgba(255,255,255,0.5);
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +39,43 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+.gh-profile{
+    margin: 20px;
+}
+.gh-profile_link{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    cursor: pointer;
+}
+.rsschool{
+    margin: 20px;
+}
+.rsschool_img{
+   width: 150px;
+   height: 150px;
+}
+.gh-profile_img{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+.gh-profile_link{
+    display: inline-block;
+}
+@media all and (max-width: 768px) {
+    .main{
+        display: block;
+        gap: 0;
+    }
+    .gh-profile_img{
+        width: 20px;
+        height: 20px;
+    }
+    .rsschool_img{
+        width: 80px;
+        height: 80px;
+    }
 }
